@@ -1,0 +1,11 @@
+Django>=5.0
+djangorestframework
+django-cors-headers
+django-environ
+mysqlclient
+django-filter
+djangorestframework-simplejwt
+django-redis
+celery
+drf-spectacular
+stripe
