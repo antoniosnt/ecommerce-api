@@ -1,8 +1,53 @@
+# =============================
+# Python
+# =============================
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+*.manifest
+*.spec
+*.log
 
-# SECRETS
-.env*
+# Virtualenv / venv
+venv/
+.env/
+.env.*    # qualquer outro arquivo de ambiente
+*.venv/
 
-# VENV
-.venv
+# =============================
+# Django
+# =============================
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+*.log
+
+# Django migrations (opcional, se quiser versionar, retire essas linhas)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# =============================
+# Docker
+# =============================
+*.env
+docker-compose.override.yml
+**/docker-compose.override.yml
+**/Dockerfile.dev
+
+# =============================
+# IDEs / Editors
+# =============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =============================
+# Mac / Linux / Windows
+# =============================
+.DS_Store
+Thumbs.db
