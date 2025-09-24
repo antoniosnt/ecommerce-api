@@ -9,3 +9,4 @@ django-redis
 celery
 drf-spectacular
 stripe
+pydantic

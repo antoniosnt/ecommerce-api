@@ -8,10 +8,15 @@ CREATE TABLE ecm_catalogo (
     pk_ecm_product BIGINT AUTO_INCREMENT PRIMARY KEY,
     nce BIGINT,
     fk_color BIGINT,
-    sku VARCHAR(255) AS (CONCAT(nce, ' ', fk_color)) STORED,
+    sku  VARCHAR(255) AS (	
+	  CONCAT(
+	    LPAD(nce, 3, '0'),
+		LPAD(fk_color, 3, '0')
+        )
+    ) STORED,
     na_product VARCHAR(55) NOT NULL,
     na_description VARCHAR(255) NOT NULL,
-    total_vl VARCHAR(25) NOT NULL,
+    total_vl DECIMAL(10, 2) NOT NULL,
     installments JSON NULL,
     images JSON NULL,
     FOREIGN KEY (fk_color) REFERENCES ecm_cores(pk_ecm_color)
@@ -38,3 +43,5 @@ CREATE TABLE ecm_eventos (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     processed_at TIMESTAMP NULL
 );
+
+INSERT INTO ecm_cores (na_color, hex_cod) VALUES ("branco", "#ffffff");

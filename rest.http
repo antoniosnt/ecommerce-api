@@ -1,0 +1,19 @@
+### ====== GET ALL ======
+GET http://127.0.0.1:8000/ecommerce/products/
+
+### ====== GET BY ID ======
+GET http://127.0.0.1:8000/ecommerce/products/detail?nce=1&fk_color=1
+
+### ====== INSERT ======
+POST http://127.0.0.1:8000/ecommerce/products/
+Content-Type: application/json
+
+{
+    "nce": 1,
+    "fk_color": 1,
+    "na_product": "GELADEIRA 220V ELETROLUX",
+    "na_description": "UMA GELADEIRA BOA DEMAIS",
+    "total_vl": 1700.00,
+    "installments": null,
+    "images": null
+}
