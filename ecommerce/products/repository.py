@@ -1,5 +1,5 @@
 from django.db import connection
-from core.utils.debug import format_query_for_debuging, dictfetchall
+from ecommerce.core.utils.debug import format_query_for_debuging, dictfetchall
 
 
 class ProductRepository:

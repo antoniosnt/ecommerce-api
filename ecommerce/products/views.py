@@ -3,8 +3,8 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
 from rest_framework.decorators import action
-from products.repository import ProductRepository
-from products.validators import ProductDTO
+from ecommerce.products.repository import ProductRepository
+from ecommerce.products.validators import ProductDTO
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -27,7 +27,9 @@ class ProductViewSet(viewsets.ModelViewSet):
 
             product_rep.insert_product(data=product_dto.model_dump())
 
-            return Response(data={"message": "product created"}, status=status.HTTP_201_CREATED)
+            return Response(
+                data={"message": "product created"}, status=status.HTTP_201_CREATED
+            )
 
         except Exception as e:
             print(traceback.print_exc())

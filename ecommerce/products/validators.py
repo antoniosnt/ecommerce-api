@@ -2,6 +2,7 @@ from typing import Optional
 from decimal import Decimal
 from pydantic import BaseModel
 
+
 class ProductDTO(BaseModel):
     nce: int
     fk_color: int
