@@ -1,20 +1,20 @@
 version: "3.9"
 
 services:
-  web:
-    build: .
-    container_name: ecommerce-api
-    volumes:
-      - .:/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - dbaecm
-    environment:
-      - DB_HOST=${DATABASE_HOST}
-      - DB_NAME=${DATABASE_NAME}
-      - DB_USER=${DATABASE_USER}
-      - DB_PASSWORD=${DATABASE_PASSWORD}
+  # web:
+  #   build: .
+  #   container_name: ecommerce-api
+  #   volumes:
+  #     - .:/app
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - dbaecm
+  #   environment:
+  #     - DB_HOST=${DATABASE_HOST}
+  #     - DB_NAME=${DATABASE_NAME}
+  #     - DB_USER=${DATABASE_USER}
+  #     - DB_PASSWORD=${DATABASE_PASSWORD}
 
   dbaecm:
     image: mysql:8.0
