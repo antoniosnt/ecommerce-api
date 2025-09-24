@@ -1,4 +1,5 @@
-# DB CONNECTIONS
+__pycache__/
+*.py[cod]
 
 # SECRETS
 .env*
