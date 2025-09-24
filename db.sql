@@ -1,10 +1,20 @@
+CREATE TABLE ecm_cores (
+    pk_ecm_color BIGINT AUTO_INCREMENT PRIMARY KEY,
+    na_color VARCHAR(55) NOT NULL,
+    hex_cod VARCHAR(7) NOT NULL
+);
+
 CREATE TABLE ecm_catalogo (
     pk_ecm_product BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nce BIGINT,
+    fk_color BIGINT,
+    sku VARCHAR(255) AS (CONCAT(nce, ' ', fk_color)) STORED,
     na_product VARCHAR(55) NOT NULL,
     na_description VARCHAR(255) NOT NULL,
     total_vl VARCHAR(25) NOT NULL,
     installments JSON NULL,
-    images JSON NULL
+    images JSON NULL,
+    FOREIGN KEY (fk_color) REFERENCES ecm_cores(pk_ecm_color)
 );
 
 CREATE TABLE ecm_categorias (
