@@ -1,6 +1,6 @@
 from django.db import connection
-from ecommerce.core.utils.debug import format_query_for_debuging, dictfetchall
-
+from jestor.core.utils.debug import format_query_for_debuging
+from jestor.core.utils.querys import dictfetchall
 
 class ProductRepository:
     def __init__(self):
