@@ -1,11 +1,14 @@
-### ====== GET ALL ======
-GET http://127.0.0.1:8000/ecommerce/products/
+### ====== GET ALL PRODUCTS ======
+GET http://127.0.0.1:8000/jestor/products/
+
+### ====== GET ALL CATEGORIES
+GET http://127.0.0.1:8000/jestor/categories/
 
 ### ====== GET BY ID ======
-GET http://127.0.0.1:8000/ecommerce/products/detail?nce=1&fk_color=1
+GET http://127.0.0.1:8000/jestor/products/detail?nce=1&fk_color=1
 
 ### ====== INSERT ======
-POST http://127.0.0.1:8000/ecommerce/products/
+POST http://127.0.0.1:8000/jestor/products/
 Content-Type: application/json
 
 {

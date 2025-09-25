@@ -1,5 +1,5 @@
 """
-URL configuration for ecommerce project.
+URL configuration for jestor project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -17,8 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("ecommerce/", include("ecommerce.products.urls")),
+    path("jestor/", include("jestor.core.urls"), name="jestor"),
+    path("jestor/api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("jestor/docs/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]
