@@ -4,10 +4,17 @@ CREATE TABLE ecm_cores (
     hex_cod VARCHAR(7) NOT NULL
 );
 
+CREATE TABLE ecm_marcas (
+    pk_ecm_marca BIGINT AUTO_INCREMENT PRIMARY KEY,
+    na_brand VARCHAR(55) NOT NULL,
+    cnpj VARCHAR(55) NOT NULL
+);
+
 CREATE TABLE ecm_catalogo (
     pk_ecm_product BIGINT AUTO_INCREMENT PRIMARY KEY,
     nce BIGINT,
     fk_color BIGINT,
+    fk_marca BIGINT,
     sku  VARCHAR(255) AS (	
 	  CONCAT(
 	    LPAD(nce, 3, '0'),
@@ -19,7 +26,8 @@ CREATE TABLE ecm_catalogo (
     total_vl DECIMAL(10, 2) NOT NULL,
     installments JSON NULL,
     images JSON NULL,
-    FOREIGN KEY (fk_color) REFERENCES ecm_cores(pk_ecm_color)
+    FOREIGN KEY (fk_color) REFERENCES ecm_cores(pk_ecm_color),
+    FOREIGN KEY (fk_ecm_marca) REFERENCES ecm_marcas(pk_ecm_marca)
 );
 
 CREATE TABLE ecm_categorias (
@@ -43,5 +51,3 @@ CREATE TABLE ecm_eventos (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     processed_at TIMESTAMP NULL
 );
-
-INSERT INTO ecm_cores (na_color, hex_cod) VALUES ("branco", "#ffffff");
