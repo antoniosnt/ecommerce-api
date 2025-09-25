@@ -1,22 +1,29 @@
 ### ====== GET ALL PRODUCTS ======
-GET http://127.0.0.1:8000/jestor/products/
+GET http://127.0.0.1:8000/jestor/products/?na_product=&sku=013
 
 ### ====== GET ALL CATEGORIES
-GET http://127.0.0.1:8000/jestor/categories/
+GET http://127.0.0.1:8000/jestor/categories/?na_category=C
 
-### ====== GET BY ID ======
-GET http://127.0.0.1:8000/jestor/products/detail?nce=1&fk_color=1
-
-### ====== INSERT ======
+### ====== INSERT PRODUCT ======
 POST http://127.0.0.1:8000/jestor/products/
 Content-Type: application/json
 
 {
-    "nce": 1,
-    "fk_color": 1,
-    "na_product": "GELADEIRA 220V ELETROLUX",
-    "na_description": "UMA GELADEIRA BOA DEMAIS",
-    "total_vl": 1700.00,
+    "nce": 13,
+    "cd_color": 1,
+    "cd_marca": 1,
+    "na_product": "VENTILADOR ELETROLUX",
+    "na_description": "",
+    "total_vl": 323.97,
     "installments": null,
     "images": null
+}
+
+### ====== INSERT CATEGORY ======
+POST http://127.0.0.1:8000/jestor/categories/
+Content-Type: application/json
+
+{
+    "cd_category": 3,
+    "na_category": "Quarto"
 }

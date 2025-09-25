@@ -7,13 +7,29 @@ class ProductRepository:
     def __init__(self):
         pass
 
-    def get_products(self):
+    def get_products(self, sku=None, na_product=None):
         SQL = """
-        SELECT * FROM ecm_catalogo;
+            SELECT *
+            FROM ecm_catalogo ec
         """
 
+        filters = []
+        params = {}
+
+        if sku:
+            filters.append("ec.sku LIKE %(sku)s")
+            params["sku"] = f"%{sku}%"
+
+        if na_product:
+            filters.append("ec.na_product LIKE %(na_product)s")
+            params["na_product"] = f"{na_product}%"
+
+        if filters:
+            SQL += " WHERE " + " AND ".join(filters)
+
         with connection.cursor() as cursor:
-            cursor.execute(sql=SQL)
+            print(format_query_for_debuging(query=SQL, params=params))
+            cursor.execute(sql=SQL, params=params)
             products = dictfetchall(cursor=cursor)
 
         return products if products else None
@@ -22,14 +38,15 @@ class ProductRepository:
         SQL = """
         INSERT INTO ecm_catalogo (
             nce, 
-            fk_color,
+            cd_color,
+            cd_marca,
             na_product,
             na_description,
             total_vl,
             installments,
             images
         ) VALUES (
-            %(nce)s, %(fk_color)s, %(na_product)s,
+            %(nce)s, %(cd_color)s, %(cd_marca)s, %(na_product)s,
             %(na_description)s, %(total_vl)s, %(installments)s,
             %(images)s
         )
@@ -37,7 +54,8 @@ class ProductRepository:
 
         params = {
             "nce": data.get("nce"),
-            "fk_color": data.get("fk_color"),
+            "cd_color": data.get("cd_color"),
+            "cd_marca": data.get("cd_marca"),
             "na_product": data.get("na_product"),
             "na_description": data.get("na_description"),
             "total_vl": data.get("total_vl"),
