@@ -50,10 +50,10 @@ class ProductRepository:
 
     def get_product_by_sku(self, sku=None):
         SQL = """
-        SELECT * FROM ecm_catalogo ec WHERE ec.sku = %(sku)s
+        SELECT * FROM ecm_catalogo ec WHERE ec.sku LIKE '%(sku)s'
         """
 
-        params = {"sku": sku}
+        params = {"sku": "%" + sku + "%"}
 
         with connection.cursor() as cursor:
             print(format_query_for_debuging(query=SQL, params=params))

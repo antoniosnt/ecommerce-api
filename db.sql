@@ -18,7 +18,8 @@ CREATE TABLE ecm_catalogo (
     sku  VARCHAR(255) AS (	
 	  CONCAT(
 	    LPAD(nce, 3, '0'),
-		LPAD(fk_color, 3, '0')
+		LPAD(fk_color, 3, '0'),
+        LPAD(fk_ecm_marca, 3, '0')
         )
     ) STORED,
     na_product VARCHAR(55) NOT NULL,

@@ -44,11 +44,12 @@ class ProductViewSet(viewsets.ModelViewSet):
 
         nce = request.query_params.get("nce", None)
         fk_color = request.query_params.get("fk_color", None)
+        fk_marca = request.query_params.get("fk_marca", None)
 
-        if not nce or not fk_color:
-            return Response({"error": "params are required"}, status=400)
+        if not nce:
+            return Response({"error": "nce are required"}, status=400)
 
-        sku = f"{nce.zfill(3)}{fk_color.zfill(3)}"
+        sku = f"{nce.zfill(3)}{fk_color.zfill(3)}{fk_marca.zfill(3)}"
 
         product = product_rep.get_product_by_sku(sku=sku)
 
