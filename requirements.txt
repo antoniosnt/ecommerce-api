@@ -10,3 +10,4 @@ celery
 drf-spectacular
 stripe
 pydantic
+drf-spectacular[redoc]

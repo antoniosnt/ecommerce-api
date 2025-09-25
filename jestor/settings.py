@@ -27,6 +27,9 @@ DEBUG = True if os.environ.get("ENVIRONMENT", "TST") != "PRODUCTION" else False
 ALLOWED_HOSTS = []
 
 # Application definition
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -35,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "drf_spectacular",
     "jestor.jst_products",
 ]
 

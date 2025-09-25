@@ -2,6 +2,7 @@ from django.db import connection
 from jestor.core.utils.debug import format_query_for_debuging
 from jestor.core.utils.querys import dictfetchall
 
+
 class ProductRepository:
     def __init__(self):
         pass
@@ -60,4 +61,4 @@ class ProductRepository:
             cursor.execute(sql=SQL, params=params)
             results = dictfetchall(cursor=cursor)
 
-        return results[0] if results else None
+        return results if results else None

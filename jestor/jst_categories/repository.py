@@ -2,6 +2,7 @@ from django.db import connection
 from jestor.core.utils.debug import format_query_for_debuging
 from jestor.core.utils.querys import dictfetchall
 
+
 class CategoryRepository:
     def __init__(self):
         pass
