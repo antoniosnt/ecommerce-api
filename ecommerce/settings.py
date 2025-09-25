@@ -20,6 +20,8 @@ environ.Env.read_env(".env")
 # Django settings
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", None)
+
+# IF NOT PRODUCTION
 DEBUG = True if os.environ.get("ENVIRONMENT", "TST") != "PRODUCTION" else False
 
 ALLOWED_HOSTS = []
