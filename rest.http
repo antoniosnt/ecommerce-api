@@ -1,5 +1,8 @@
-### ====== GET ALL ======
+### ====== GET ALL PRODUCTS ======
 GET http://127.0.0.1:8000/jestor/products/
+
+### ====== GET ALL CATEGORIES
+GET http://127.0.0.1:8000/jestor/categories/
 
 ### ====== GET BY ID ======
 GET http://127.0.0.1:8000/jestor/products/detail?nce=1&fk_color=1
